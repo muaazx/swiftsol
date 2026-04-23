@@ -203,6 +203,30 @@ body {
 
 
 
+/* Ensure dropdown headings and paragraphs remain legible */
+.nav-section-header h1,
+.nav-section-header h2,
+.nav-section-header h3,
+.nav-section-header h4,
+.nav-section-header h5,
+.nav-section-header h6,
+.nav-section-dropdown h1,
+.nav-section-dropdown h2,
+.nav-section-dropdown h3,
+.nav-section-dropdown h4,
+.nav-section-dropdown h5,
+.nav-section-dropdown h6,
+.nav-section-dropdown p,
+.nav-section-mobile h1,
+.nav-section-mobile h2,
+.nav-section-mobile h3,
+.nav-section-mobile h4,
+.nav-section-mobile h5,
+.nav-section-mobile h6,
+.nav-section-mobile p {
+    color: #000000 !important;
+}
+
 /* ===== NAVBAR ===== */
 .nav-section-header {
     position: fixed;
@@ -366,7 +390,7 @@ body {
 
     .nav-section-mega-left p {
         font-size: 13px;
-        color: #0B4F47;
+        color: #000000;
         opacity: 0.7;
     }
 

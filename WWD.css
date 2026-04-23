@@ -36,24 +36,22 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
 }
 
-/* Ensure dropdown headings remain legible */
+/* Ensure dropdown headings and paragraphs remain legible */
 .nav-section-dropdown h1,
 .nav-section-dropdown h2,
 .nav-section-dropdown h3,
 .nav-section-dropdown h4,
 .nav-section-dropdown h5,
 .nav-section-dropdown h6,
+.nav-section-dropdown p,
 .nav-section-mobile h1,
 .nav-section-mobile h2,
 .nav-section-mobile h3,
 .nav-section-mobile h4,
 .nav-section-mobile h5,
-.nav-section-mobile h6 {
-    color: #0B4F47 !important;
-}
-
-.nav-section-mega-left h4 {
-    color: #12A594 !important;
+.nav-section-mobile h6,
+.nav-section-mobile p {
+    color: #000000 !important;
 }
 
     /* LOCK SCROLL */
