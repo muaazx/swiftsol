@@ -9,8 +9,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -19,6 +20,16 @@
 
     <!-- Font Awesome (icons fix) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .section-4-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+        .section-4-card:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 10px 30px rgba(18, 165, 148, 0.3) !important;
+            border-color: #12A594 !important;
+        }
+    </style>
 </head>
 
 
@@ -133,7 +144,7 @@
                                 <!--<p>Understand the rules, policies, and terms of using our services.</p>-->
                             </a>
 
-                            <a href="TP.html#section-2">
+                            <a href="privacy.html">
                                 <h4>Privacy Policy</h4>
                                 <!--<p>See how we collect, protect, and use your personal data securely.</p>-->
                             </a>
@@ -227,7 +238,7 @@
                     <a href="WWR.html#section-5">About Us</a>
                     <a href="WWR.html#section-5">Our Vision</a>
                     <a href="TP.html#section-1">Terms & Conditions</a>
-                    <a href="TP.html#section-2">Privacy Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
 
                     <div class="mobile-banner">
                         <h4>Driven by Innovation</h4>
@@ -265,6 +276,9 @@
                 <source src="video1.mp4" type="video/mp4">
             </video>
 
+            <!-- Overlay -->
+            <div class="overlay"></div>
+
 
 
 
@@ -277,6 +291,10 @@
             <div class="hero-content">
                 <h1>Innovating Tomorrow</h1>
                 <p>We design future-ready digital solutions</p>
+                <a href="industry.html" class="hero-btn">
+                    Learn More 
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
 
@@ -284,14 +302,20 @@
             <video autoplay muted loop playsinline>
                 <source src="video3.mp4" type="video/mp4">
             </video>
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
             <div class="hero-content">
                 <h1>Empowering Businesses</h1>
                 <p>Strategy • Technology • Growth</p>
+                <a href="industry.html" class="hero-btn">
+                    Learn More 
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
 
-        <!-- Overlay -->
-        <div class="overlay"></div>
+
 
         <!-- Arrows -->
         <div class="arrow left" id="prev">&#10094;</div>
@@ -392,9 +416,9 @@
 
             <!-- TECHNOLOGY -->
             <div class="index-tabs-content active swiftCare-fade-up swiftCare-delay-1" id="tech">
-                <h1>Technology.</h1>
-                <p>At the intersection of transformation and innovation, we build solutions that propel industries
-                    forward.</p>
+                <h1 style="color: #12A594;">Technology.</h1>
+                <p><span style="color: #ffffff;">At the intersection of transformation and innovation,</span> <span style="color: #12A594;">we build solutions that propel industries
+                    forward.</span></p>
 
                 <div class="index-grid">
                     <div class="index-card">
@@ -422,8 +446,8 @@
 
             <!-- OUTSOURCING -->
             <div class="index-tabs-content swiftCare-fade-up swiftCare-delay-1" id="outsourcing">
-                <h1>Outsourcing.</h1>
-                <p>Strategic outsourcing that drives efficiency and innovation.</p>
+                <h1 style="color: #12A594;">Outsourcing.</h1>
+                <p><span style="color: #ffffff;">Strategic outsourcing that</span> <span style="color: #12A594;">drives efficiency and innovation.</span></p>
                 <div class="index-grid">
                     <div class="index-card">
                         <span>💻</span>
@@ -450,8 +474,8 @@
 
             <!-- PEOPLE -->
             <div class="index-tabs-content swiftCare-fade-up swiftCare-delay-1" id="people">
-                <h1>People.</h1>
-                <p>Driven by talent, innovation, and human intelligence.</p>
+                <h1 style="color: #12A594;">People.</h1>
+                <p><span style="color: #ffffff;">Driven by talent, innovation,</span> <span style="color: #12A594;">and human intelligence.</span></p>
                 <div class="index-grid">
                     <div class="index-card">
                         <span>💻</span>
@@ -495,7 +519,7 @@
         <div class="about-container">
 
             <div class="about-left">
-                <h1>Discover Who <br> We Are.</h1>
+                <h1><span style="color: #12A594;">Discover Who</span> <br> We Are.</h1>
             </div>
 
             <div class="about-right   swiftCare-fade-up swiftCare-delay-1">
@@ -605,7 +629,7 @@
             <div class="career-content">
                 <p class="tag">#LifeAtSwiftCare</p>
 
-                <h1>Be Part of<br>Something Bigger.</h1>
+                <h1><span style="color: #12A594;">Be Part</span> of<br>Something <span style="color: #12A594;">Bigger</span>.</h1>
 
                 <p>
                     At SwiftCare, your passion meets purpose and your skills unlock limitless opportunities.
@@ -632,7 +656,7 @@
             <!-- Header -->
             <div class="section-4-header">
                 <span class="section-4-tag">INDUSTRIES WE SERVE</span>
-                <h2>We Speak Your Industry's Language</h2>
+                <h2>We <span style="color: #12A594;">Speak</span> Your <span style="color: #12A594;">Industry's</span> Language</h2>
                 <p>
                     Cookie-cutter customer service doesn't work in specialized industries.
                     Our experts understand your field so your customers always feel understood.
@@ -642,29 +666,28 @@
             <!-- Cards -->
             <div class="section-4-grid">
 
-                <div class="section-4-card">
-                    <div class="section-4-icon">🚌</div>
-                    <h3>Transportation</h3>
+                <div class="section-4-card" style="text-align: left; border: 1px solid #1f4e8c; border-radius: 12px; padding: 30px;">
+                    <div class="section-4-icon" style="text-align: left; margin-bottom: 15px;">🤝</div>
+                    <h3 style="color: #0b2c4a; font-size: 18px; margin-bottom: 10px;">Human First, Always</h3>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">Real people. Real empathy. No robotic scripts or hollow responses.</p>
                 </div>
 
-                <div class="section-4-card">
-                    <div class="section-4-icon">🏨</div>
-                    <h3>Hotels & Hospitality</h3>
+                <div class="section-4-card" style="text-align: left; border: 1px solid #1f4e8c; border-radius: 12px; padding: 30px;">
+                    <div class="section-4-icon" style="text-align: left; margin-bottom: 15px;">🎯</div>
+                    <h3 style="color: #0b2c4a; font-size: 18px; margin-bottom: 10px;">Industry Trained</h3>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">Our agents are trained specifically for your field — not generic call handlers.</p>
                 </div>
 
-                <div class="section-4-card">
-                    <div class="section-4-icon">🏥</div>
-                    <h3>Healthcare</h3>
+                <div class="section-4-card" style="text-align: left; border: 1px solid #1f4e8c; border-radius: 12px; padding: 30px;">
+                    <div class="section-4-icon" style="text-align: left; margin-bottom: 15px;">🌐</div>
+                    <h3 style="color: #0b2c4a; font-size: 18px; margin-bottom: 10px;">Nationwide Reach</h3>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">Covering all 50 states so your customers always have someone to reach.</p>
                 </div>
 
-                <div class="section-4-card">
-                    <div class="section-4-icon">🦷</div>
-                    <h3>Dental Care</h3>
-                </div>
-
-                <div class="section-4-card">
-                    <div class="section-4-icon">🏭</div>
-                    <h3>Industrial Services</h3>
+                <div class="section-4-card" style="text-align: left; border: 1px solid #1f4e8c; border-radius: 12px; padding: 30px;">
+                    <div class="section-4-icon" style="text-align: left; margin-bottom: 15px;">⚡</div>
+                    <h3 style="color: #0b2c4a; font-size: 18px; margin-bottom: 10px;">Always Available</h3>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">24/7 coverage so you never miss a call, inquiry, or urgent moment.</p>
                 </div>
 
             </div>
@@ -858,8 +881,8 @@
             <!-- LINKS -->
             <div class="footer-section123-links">
                 <a href="WWR.html#section-5">Our Vision</a>
-                <a href="TP.html#section-1">Privacy Policy</a>
-                <a href="TP.html#section-2">Terms</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="TP.html#section-1">Terms & Conditions</a>
 
             </div>
 

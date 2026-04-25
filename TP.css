@@ -490,13 +490,13 @@ h1, h2, h3, h4, h5, h6 {
 .hero-image {
     position: relative;
     width: 1260px;
-    height: 400px;
-    margin: 80px auto 0 auto; /* Centered with space for navbar */
+    height: 600px;
+    margin: 80px auto 0 auto;
     display: flex;
     align-items: center;
     padding: 0 60px;
-    overflow: hidden; /* Contains the blur/scale effect */
-    border-radius: 20px; /* Optional: adds a premium look for a fixed-size box */
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 /* BANNER IMAGE WITH BLUR REVEAL */
@@ -507,7 +507,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--hero-bg, url('tt.jpg')) var(--hero-pos, center)/100% 100% no-repeat;
+    background: var(--hero-bg, url('tt.jpg')) var(--hero-pos, center)/cover no-repeat;
     z-index: 1;
     animation: blurReveal 0.8s ease-out forwards;
 }
@@ -581,26 +581,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-1-terms {
     padding: 80px 6%;
-    max-width: 900px;
-    margin: auto;
+    max-width: 100%;
     background: var(--BACKGROUNDCOLOR);
+    text-align: left;
 }
 
 .section-1-updated {
     margin-bottom: 20px;
     color: #666;
+    font-size: 20px;
 }
 
 .section-1-terms h3 {
-    margin-top: 30px;
+    margin-top: 40px;
     color: var(--TEXTCOLOR);
+    font-size: 32px;
 }
 
 .section-1-terms p,
 .section-1-terms li {
     color: var(--TEXTCOLOR);
     line-height: 1.8;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 22px;
 }
 
 .section-1-terms ul {

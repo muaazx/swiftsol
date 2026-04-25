@@ -642,6 +642,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* DARK OVERLAY */
 .hero-section-overlay {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -762,8 +763,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-4-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: auto;
+    padding: 0 40px;
 }
 
 /* ===== HEADER ===== */
@@ -794,37 +796,58 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== GRID ===== */
 .section-4-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
 /* ===== CARD ===== */
 .section-4-card {
     background: #ffffff; /* clean white cards */
     border-radius: 20px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: 0.4s ease;
+    padding: 40px 30px;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid #1f4e8c;
+    position: relative;
+    z-index: 1;
+    
+    /* Entrance Animation Base State */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Entrance Animation Triggered State */
+.section-4-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
     /* hover */
     .section-4-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transform: translateY(-15px) scale(1.08);
+        box-shadow: 0 25px 50px rgba(18, 165, 148, 0.3);
+        border-color: #12A594;
     }
 
 /* ===== ICON ===== */
 .section-4-icon {
     font-size: 28px;
     margin-bottom: 15px;
+    text-align: left;
 }
 
 /* ===== TEXT ===== */
 .section-4-card h3 {
-    color: black !important; /* Force black text on white card */
-    font-size: 15px;
+    color: #0b2c4a !important; 
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.section-4-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -1728,4 +1751,90 @@ h1, h2, h3, h4, h5, h6 {
     .counter-section {
         flex-direction: column;
     }
+}
+
+/* NEW INDUSTRIES SECTION */
+:root {
+    --text-gray: #666;
+    --bg-light: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+.industries-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.header-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #12A594 !important;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.icon-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #eee;
+}
+
+.icon-box:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(18, 165, 148, 0.2);
+    border-color: #12A594;
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f4f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #12A594;
+    font-size: 24px;
+}
+
+.icon-box h3 {
+    font-size: 1.25rem;
+    margin: 0 0 15px 0;
+    color: #1a1a1a !important;
+}
+
+.icon-box p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin: 0;
+    text-align: left;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .industries-grid { grid-template-columns: 1fr; }
+    .header-section h2 { font-size: 2rem; }
 }
