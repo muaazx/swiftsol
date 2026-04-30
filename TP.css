@@ -507,7 +507,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--hero-bg, url('tt.jpg')) var(--hero-pos, center)/cover no-repeat;
+    background: var(--hero-bg, url('assets/images/tt.jpg')) var(--hero-pos, center)/cover no-repeat;
     z-index: 1;
     animation: blurReveal 0.8s ease-out forwards;
 }
@@ -822,5 +822,8 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
 }
+
+
+
 
 

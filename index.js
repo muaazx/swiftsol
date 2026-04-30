@@ -27,7 +27,8 @@ app.post("/send-email", async (req, res) => {
         // EMAIL CONTENT
         const mailOptions = {
             from: email,
-            to: process.env.EMAIL_USER,
+            replyTo: email,
+            to: process.env.RECIPIENT_EMAIL || "hello@swiftcaresolution.net",
             subject: "New Contact Form Message",
             html: `
                 <h3>New Message</h3>
@@ -49,6 +50,12 @@ app.post("/send-email", async (req, res) => {
 });
 
 // SERVER
-app.listen(5000, () => {
-    console.log("Server running on http://localhost:5000");
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(5000, () => {
+        console.log("Server running on http://localhost:5000");
+    });
+}
+
+module.exports = app;
+
+

@@ -1,4 +1,4 @@
-﻿// ===============================
+// ===============================
 // NAVBAR - DESKTOP DROPDOWN
 // ===============================
 const navItems = document.querySelectorAll(".nav-section-item");
@@ -425,3 +425,5 @@ const swiftCare_observer = new IntersectionObserver((entries) => {
 swiftCare_elements.forEach(el => {
     swiftCare_observer.observe(el);
 });
+
+

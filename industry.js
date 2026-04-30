@@ -355,3 +355,6 @@ const industryS2Observer = new IntersectionObserver(entries => {
 }, {threshold: 0.5 });
 
     industryS2Observer.observe(document.querySelector('.counter-section'));
+
+
+

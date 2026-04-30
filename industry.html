@@ -31,7 +31,7 @@
 
 
                 <a href="index.html">
-                    <img src="logo5.png" alt="SwiftCare Logo">
+                    <img src="assets/images/logo5.png" alt="SwiftCare Logo">
                 </a>
 
 
@@ -171,7 +171,7 @@
 
             <div class="nav-section-mobile-top">
                 <div class="nav-section-logo">
-                    <img src="logo2.jpeg" alt="Logo">
+                    <img src="assets/images/logo2.jpeg" alt="Logo">
                 </div>
                 <button id="navClose">✕</button>
             </div>
@@ -261,7 +261,7 @@
 
 
 
-    <section class="hero-section-industry" style="--hero-bg: url('ii.png'); --hero-pos: top;">
+    <section class="hero-section-industry" style="--hero-bg: url('assets/images/ii.png'); --hero-pos: top;">
 
         <!-- OVERLAY -->
         <div class="hero-section-overlay" style="display:none;"></div>
@@ -305,7 +305,7 @@
 
             <!-- LEFT IMAGE -->
             <div class="industry-image">
-                <img src="industry-s2.svg" alt="Team Meeting">
+                <img src="assets/images/industry-s2.svg" alt="Team Meeting">
             </div>
 
             <!-- RIGHT CONTENT -->
@@ -716,7 +716,7 @@
                 <img src="images/oracle.png" alt="Oracle NetSuite">-->
                 <!--1-->
 
-                <img src="p1.jpg" alt="Microsoft">
+                <img src="assets/images/p1.jpg" alt="Microsoft">
 
 
 
@@ -725,19 +725,19 @@
 
                 <img src="images/uipath.png" alt="UiPath">-->
                 <!--3-->
-                <img src="p3.jpg" alt="Auth0">
+                <img src="assets/images/p3.jpg" alt="Auth0">
 
 
                 <!--2-->
 
-                <img src="p2.png" alt="Vonage">
+                <img src="assets/images/p2.png" alt="Vonage">
 
 
 
                 <!--<img src="images/snaplogic.png" alt="SnapLogic">
                 <img src="images/rancher.png" alt="Rancher">-->
                 <!--4-->
-                <img src="p4.jpg" alt="Mendix">
+                <img src="assets/images/p4.jpg" alt="Mendix">
             </div>
 
         </div>
@@ -923,27 +923,38 @@
 
 
     const form = document.getElementById("contactForm");
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const inputs = form.querySelectorAll("input, textarea");
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = "Sending...";
+        submitBtn.disabled = true;
 
-        const data = {
-            firstName: inputs[0].value,
-            lastName: inputs[1].value,
-            email: inputs[2].value,
-            phone: inputs[3].value,
-            message: inputs[4].value,
-        };
+        const inputs = form.querySelectorAll("input, textarea");
+        
+        // Map inputs by placeholder or type to be more robust
+        const formData = {};
+        inputs.forEach(input => {
+            const placeholder = input.placeholder.toLowerCase();
+            if (placeholder.includes("first")) formData.firstName = input.value;
+            else if (placeholder.includes("last")) formData.lastName = input.value;
+            else if (placeholder.includes("email")) formData.email = input.value;
+            else if (placeholder.includes("phone")) formData.phone = input.value;
+            else if (placeholder.includes("message")) formData.message = input.value;
+        });
 
         try {
-            const res = await fetch("http://localhost:5000/send-email", {
+            // Works both locally and in production
+            const API_URL = "/send-email"; 
+            
+            const res = await fetch(API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(formData),
             });
 
             const result = await res.json();
@@ -952,11 +963,15 @@
                 alert("Message sent successfully!");
                 form.reset();
             } else {
-                alert("Failed to send message");
+                alert("Failed to send message: " + (result.message || "Unknown error"));
             }
 
         } catch (error) {
-            alert("Error connecting to server");
+            console.error("Submission error:", error);
+            alert("Error connecting to server. Please ensure the backend is running.");
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
         }
     });
 
@@ -972,3 +987,6 @@
 
 
 </html>
+
+
+

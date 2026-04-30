@@ -153,3 +153,5 @@ const observer = new IntersectionObserver(entries => {
 
 const counterSection = document.querySelector(".section-8-counter");
 observer.observe(counterSection);
+
+
