@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // ROUTE
-app.post("/api/send-email", async (req, res) => {
+app.post(["/api/send-email", "/"], async (req, res) => {
     console.log("Received email request:");
 
     const { firstName, lastName, email, phone, message } = req.body;

@@ -13,7 +13,7 @@ const rootPath = path.resolve(__dirname, '..');
 app.use(express.static(rootPath));
 
 // ROUTE
-app.post("/api", async (req, res) => {
+app.post(["/api", "/"], async (req, res) => {
 
     console.log("Received email request:");
 
