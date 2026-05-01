@@ -1126,6 +1126,58 @@ h1, h2, h3, h4, h5, h6 {
         opacity: 1;
     }
 
+.section-8-map {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    max-width: none;
+    aspect-ratio: 2.2 / 1;
+    background: url('/images/map.jpg') center top / cover no-repeat;
+    background-color: #fff;
+}
+
+.section-8-top {
+    position: absolute;
+    top: 12%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.section-8-top h2 {
+    font-size: 48px !important;
+    margin-bottom: 10px;
+}
+
+.section-8-top p {
+    font-size: 20px !important;
+}
+
+@media (max-width: 992px) {
+    .section-8-map {
+        aspect-ratio: 1.5 / 1;
+    }
+    .section-8-top h2 {
+        font-size: 32px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-8-map {
+        aspect-ratio: 1 / 1.2;
+        background-position: center;
+    }
+    .section-8-top {
+        top: 5%;
+    }
+    .section-8-top h2 {
+        font-size: 24px !important;
+    }
+    .section-8-top p {
+        font-size: 14px !important;
+    }
+}
+
 /* COUNTER SECTION */
 
 .section-8-counter {
@@ -1434,16 +1486,72 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:768px) {
-    .footer-section123-cta {
-        flex-direction: column;
-        align-items: flex-start;
+/* ===== RESPONSIVE OPTIMIZATIONS ===== */
+
+@media (max-width: 768px) {
+    /* HERO */
+    .hero-section-industry {
+        height: 60vh;
+        min-height: 400px;
+    }
+    .hero-section-content h1 {
+        font-size: 32px;
     }
 
-    .footer-section123-bottom {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+    /* SECTION 5 */
+    .section-5-container {
+        padding: 60px 20px;
+    }
+    .section-5-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .section-5-top h2 {
+        font-size: 30px;
+    }
+    .section-5-tab h3 {
+        font-size: 22px;
+    }
+    .section-5-tab p {
+        font-size: 16px;
+    }
+
+    /* SECTION 6 (VALUES) */
+    .section-6-container {
+        padding: 60px 20px;
+    }
+    .section-6-wrapper {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    .section-6-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* SECTION 8 (MAP) */
+    .section-8-top h2 {
+        font-size: 28px !important;
+        padding: 0 20px;
+    }
+    .section-8-top p {
+        font-size: 16px !important;
+        padding: 0 20px;
+    }
+    .section-8-counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-6-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-8-counter-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-8-top h2 {
+        font-size: 24px !important;
     }
 }
 
