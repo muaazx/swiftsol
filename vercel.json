@@ -6,5 +6,13 @@
       "source": "/send-email",
       "destination": "/api/send-email"
     }
+  ],
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" },
+    { "src": "assets/**", "use": "@vercel/static" },
+    { "src": "css/**", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" },
+    { "src": "pages/**", "use": "@vercel/static" },
+    { "src": "index.html", "use": "@vercel/static" }
   ]
 }
