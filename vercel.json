@@ -2,46 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "js/index.js",
       "use": "@vercel/node"
     },
     {
-      "src": "*.html",
+      "src": "**/*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "*.css",
+      "src": "css/*.css",
       "use": "@vercel/static"
     },
     {
-      "src": "*.js",
+      "src": "js/*.js",
       "use": "@vercel/static"
     },
     {
-      "src": "*.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.jpg",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.jpeg",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.svg",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.mp4",
+      "src": "assets/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/send-email",
-      "dest": "index.js"
+      "dest": "js/index.js"
     },
     {
       "src": "/(.*)",

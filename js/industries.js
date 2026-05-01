@@ -358,3 +358,65 @@ const industryS2Observer = new IntersectionObserver(entries => {
 
 
 
+// ===============================
+// CONTACT FORM — SEND EMAIL
+// ===============================
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const btn = contactForm.querySelector("button[type='submit']");
+        const inputs = contactForm.querySelectorAll("input, textarea");
+
+        // Collect form values
+        const [firstName, lastName] = [
+            contactForm.querySelector("input[placeholder='First Name']").value.trim(),
+            contactForm.querySelector("input[placeholder='Last Name']").value.trim()
+        ];
+        const email   = contactForm.querySelector("input[type='email']").value.trim();
+        const phone   = contactForm.querySelector("input[placeholder='Phone Number']").value.trim();
+        const message = contactForm.querySelector("textarea").value.trim();
+
+        // Disable button while sending
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+
+        try {
+            const res = await fetch("/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ firstName, lastName, email, phone, message })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                btn.textContent = "✓ Message Sent!";
+                btn.style.background = "#12A594";
+                contactForm.reset();
+
+                // Reset button after 4s
+                setTimeout(() => {
+                    btn.textContent = "Send Message";
+                    btn.style.background = "";
+                    btn.disabled = false;
+                }, 4000);
+            } else {
+                throw new Error(data.message || "Server error");
+            }
+
+        } catch (err) {
+            console.error(err);
+            btn.textContent = "✗ Failed — Try Again";
+            btn.style.background = "#c0392b";
+            btn.disabled = false;
+
+            setTimeout(() => {
+                btn.textContent = "Send Message";
+                btn.style.background = "";
+            }, 4000);
+        }
+    });
+}

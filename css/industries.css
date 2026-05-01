@@ -450,6 +450,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
+.nav-section-mobile-top .nav-section-logo img {
+    height: 35px; /* Adjusted for mobile */
+}
+
 /* MOBILE ITEMS */
 .mobile-section {
     border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -1838,6 +1842,9 @@ h1, h2, h3, h4, h5, h6 {
     .industries-grid { grid-template-columns: 1fr; }
     .header-section h2 { font-size: 2rem; }
 }
+
+
+
 
 
 
