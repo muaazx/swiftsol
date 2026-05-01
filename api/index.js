@@ -8,19 +8,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the root directory
+// Serve static files from the root directory for local development
 const rootPath = path.resolve(__dirname, '..');
 app.use(express.static(rootPath));
 
-// ROUTE
-app.post(["/api", "/"], async (req, res) => {
-
-    console.log("Received email request:");
-
+// API ROUTE - Consolidating logic here as well
+app.post("/api/send-email", async (req, res) => {
     const { firstName, lastName, email, phone, message } = req.body;
 
     try {
-        // TRANSPORTER (Gmail example)
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -29,12 +25,11 @@ app.post(["/api", "/"], async (req, res) => {
             },
         });
 
-        // EMAIL CONTENT
         const mailOptions = {
             from: email,
             replyTo: email,
             to: process.env.RECIPIENT_EMAIL || "hello@swiftcaresolution.net",
-            subject: "New Contact Form Message",
+            subject: "New Contact Form Message (SwiftCare)",
             html: `
                 <h3>New Message</h3>
                 <p><b>Name:</b> ${firstName} ${lastName}</p>
@@ -45,19 +40,20 @@ app.post(["/api", "/"], async (req, res) => {
         };
 
         await transporter.sendMail(mailOptions);
-
         res.status(200).json({ success: true, message: "Email sent successfully" });
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: "Error sending email" });
+        console.error("Backend Error:", error);
+        res.status(500).json({ success: false, message: "Error sending email: " + error.message });
     }
 });
 
-// SERVER
+// SERVER LISTENER (For local running via 'npm start')
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
+
 module.exports = app;
-
-
-
-
-

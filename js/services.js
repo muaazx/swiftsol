@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 const counters = document.querySelectorAll(".counter");
 
 const counterObserver = new IntersectionObserver((entries) => {

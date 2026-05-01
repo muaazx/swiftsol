@@ -359,7 +359,7 @@ const industryS2Observer = new IntersectionObserver(entries => {
 
 
 // ===============================
-// CONTACT FORM â€” SEND EMAIL
+// CONTACT FORM — SEND EMAIL
 // ===============================
 const contactForm = document.getElementById("contactForm");
 
@@ -368,53 +368,65 @@ if (contactForm) {
         e.preventDefault();
 
         const btn = contactForm.querySelector("button[type='submit']");
-        const inputs = contactForm.querySelectorAll("input, textarea");
+        const originalText = btn.textContent;
 
         // Collect form values
-        const [firstName, lastName] = [
-            contactForm.querySelector("input[placeholder='First Name']").value.trim(),
-            contactForm.querySelector("input[placeholder='Last Name']").value.trim()
-        ];
-        const email   = contactForm.querySelector("input[type='email']").value.trim();
-        const phone   = contactForm.querySelector("input[placeholder='Phone Number']").value.trim();
-        const message = contactForm.querySelector("textarea").value.trim();
+        const firstNameInput = contactForm.querySelector("input[placeholder*='First']");
+        const lastNameInput = contactForm.querySelector("input[placeholder*='Last']");
+        const emailInput = contactForm.querySelector("input[type='email']");
+        const phoneInput = contactForm.querySelector("input[placeholder*='Phone']");
+        const messageInput = contactForm.querySelector("textarea");
+
+        const payload = {
+            firstName: firstNameInput ? firstNameInput.value.trim() : "",
+            lastName: lastNameInput ? lastNameInput.value.trim() : "",
+            email: emailInput ? emailInput.value.trim() : "",
+            phone: phoneInput ? phoneInput.value.trim() : "",
+            message: messageInput ? messageInput.value.trim() : ""
+        };
 
         // Disable button while sending
         btn.disabled = true;
-        btn.textContent = "Sendingâ€¦";
+        btn.textContent = "Sending...";
 
         try {
             const res = await fetch("/api/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ firstName, lastName, email, phone, message })
+                body: JSON.stringify(payload)
             });
+
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                throw new Error(errorData.message || `Server returned ${res.status}`);
+            }
 
             const data = await res.json();
 
             if (data.success) {
-                btn.textContent = "âœ“ Message Sent!";
+                btn.textContent = "✓ Message Sent!";
                 btn.style.background = "#12A594";
                 contactForm.reset();
 
-                // Reset button after 4s
                 setTimeout(() => {
-                    btn.textContent = "Send Message";
+                    btn.textContent = originalText;
                     btn.style.background = "";
                     btn.disabled = false;
                 }, 4000);
             } else {
-                throw new Error(data.message || "Server error");
+                throw new Error(data.message || "Unknown error");
             }
 
         } catch (err) {
-            console.error(err);
-            btn.textContent = "âœ— Failed â€” Try Again";
+            console.error("Submission error:", err);
+            alert("Submission Failed: " + err.message + "\n\nPlease ensure your environment variables (EMAIL_USER, EMAIL_PASS) are set in the Vercel dashboard.");
+            
+            btn.textContent = "✕ Failed — Try Again";
             btn.style.background = "#c0392b";
             btn.disabled = false;
 
             setTimeout(() => {
-                btn.textContent = "Send Message";
+                btn.textContent = originalText;
                 btn.style.background = "";
             }, 4000);
         }

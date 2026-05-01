@@ -3,17 +3,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/send-email",
-      "destination": "/api/send-email"
+      "source": "/api/send-email",
+      "destination": "/api/send-email.js"
     }
-  ],
-  "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "images/**", "use": "@vercel/static" },
-    { "src": "videos/**", "use": "@vercel/static" },
-    { "src": "css/**", "use": "@vercel/static" },
-    { "src": "js/**", "use": "@vercel/static" },
-    { "src": "pages/**", "use": "@vercel/static" },
-    { "src": "index.html", "use": "@vercel/static" }
   ]
 }
