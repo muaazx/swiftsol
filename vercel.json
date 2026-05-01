@@ -1,35 +1,10 @@
 {
   "version": 2,
-  "builds": [
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "src": "js/index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "css/*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "js/*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "assets/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/send-email",
-      "dest": "js/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/send-email",
+      "destination": "/api/send-email"
     }
   ]
 }

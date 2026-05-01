@@ -7,10 +7,9 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..")));
 
 // ROUTE
-app.post("/send-email", async (req, res) => {
+app.post("/api/send-email", async (req, res) => {
 
     console.log("Received email request:");
 
