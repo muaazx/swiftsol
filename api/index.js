@@ -8,8 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the root directory
+const rootPath = path.resolve(__dirname, '..');
+app.use(express.static(rootPath));
+
 // ROUTE
-app.post("/api/send-email", async (req, res) => {
+app.post("/api", async (req, res) => {
+
     console.log("Received email request:");
 
     const { firstName, lastName, email, phone, message } = req.body;

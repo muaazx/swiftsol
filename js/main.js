@@ -89,8 +89,15 @@ function showHeroSlide(i) {
 
     heroIndex = (i + slides.length) % slides.length;
 
-    slides[heroIndex].classList.add("active");
+    const activeSlide = slides[heroIndex];
+    activeSlide.classList.add("active");
     dots[heroIndex].classList.add("active");
+
+    // Ensure video is playing
+    const video = activeSlide.querySelector("video");
+    if (video && video.paused) {
+        video.play().catch(e => console.log("Autoplay check:", e));
+    }
 }
 
 // Auto slide
@@ -103,6 +110,9 @@ heroPrev.onclick = () => showHeroSlide(heroIndex - 1);
 dots.forEach((dot, i) => {
     dot.onclick = () => showHeroSlide(i);
 });
+
+// Initialize first slide
+showHeroSlide(0);
 
 
 // ===============================

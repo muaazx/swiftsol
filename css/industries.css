@@ -565,7 +565,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 20px rgba(18,165,148,0.35);
 }
 
-    /* 🔥 HOVER EFFECT */
+    /* ðŸ”¥ HOVER EFFECT */
     .desktop-cta:hover {
         transform: translateY(-3px) scale(1.03);
         /* stronger glow */
@@ -573,7 +573,7 @@ h1, h2, h3, h4, h5, h6 {
         filter: brightness(1.05);
     }
 
-    /* ✨ CLICK EFFECT */
+    /* âœ¨ CLICK EFFECT */
     .desktop-cta:active {
         transform: scale(0.96);
         box-shadow: 0 5px 15px rgba(18,165,148,0.3);
@@ -1325,7 +1325,7 @@ h1, h2, h3, h4, h5, h6 {
         color: var(--TEXTCOLOR);
     }
 
-/* ===== 🔥 ULTRA HOVER EFFECT ===== */
+/* ===== ðŸ”¥ ULTRA HOVER EFFECT ===== */
 .section-1-card:hover img {
     transform: scale(1.90) translate(-50px, -50px);
     filter: blur(5px) brightness(0.7);
@@ -1425,7 +1425,7 @@ h1, h2, h3, h4, h5, h6 {
             height: 200px;
         }
 
-        /* ⚠️ Reduce heavy animation for mobile */
+        /* âš ï¸ Reduce heavy animation for mobile */
         .section-1-card:hover img {
             transform: scale(1.15);
             filter: blur(1px);

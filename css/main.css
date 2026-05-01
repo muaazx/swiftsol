@@ -597,7 +597,7 @@ body {
     box-shadow: 0 8px 20px rgba(18,165,148,0.35);
 }
 
-    /* 🔥 HOVER EFFECT */
+    /* ðŸ”¥ HOVER EFFECT */
     .desktop-cta:hover {
         transform: translateY(-3px) scale(1.03);
         /* stronger glow */
@@ -605,7 +605,7 @@ body {
         filter: brightness(1.05);
     }
 
-    /* ✨ CLICK EFFECT */
+    /* âœ¨ CLICK EFFECT */
     .desktop-cta:active {
         transform: scale(0.96);
         box-shadow: 0 5px 15px rgba(18,165,148,0.3);
@@ -643,12 +643,11 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 1; /* Keep container opaque to prevent text transparency */
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 .video-slide.active {
-    visibility: visible;
     z-index: 2;
 }
 
@@ -656,13 +655,8 @@ video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease; /* Fade the video only */
-    z-index: 1;
-}
-
-.video-slide.active video {
     opacity: 1;
+    z-index: 1;
 }
 
 /* OVERLAY */
@@ -960,7 +954,7 @@ video {
         color: #B9D7D3;
     }
 
-/* ===== 🔥 ULTRA HOVER EFFECT ===== */
+/* ===== ðŸ”¥ ULTRA HOVER EFFECT ===== */
 .section-1-card:hover img {
     transform: scale(1.90) translate(-50px, -50px);
     filter: blur(5px) brightness(0.7);
@@ -1060,7 +1054,7 @@ video {
             height: 200px;
         }
 
-        /* ⚠️ Reduce heavy animation for mobile */
+        /* âš ï¸ Reduce heavy animation for mobile */
         .section-1-card:hover img {
             transform: scale(1.15);
             filter: blur(1px);
@@ -1288,7 +1282,7 @@ video {
     text-align: center;
     padding: 60px;
     gap: 20px;
-    /* 🔥 YOUR THEME GRADIENT */
+    /* ðŸ”¥ YOUR THEME GRADIENT */
     background: linear-gradient(135deg, #0B4F47, #12A594);
     color: white;
 }

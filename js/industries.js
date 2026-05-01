@@ -359,7 +359,7 @@ const industryS2Observer = new IntersectionObserver(entries => {
 
 
 // ===============================
-// CONTACT FORM — SEND EMAIL
+// CONTACT FORM â€” SEND EMAIL
 // ===============================
 const contactForm = document.getElementById("contactForm");
 
@@ -381,7 +381,7 @@ if (contactForm) {
 
         // Disable button while sending
         btn.disabled = true;
-        btn.textContent = "Sending…";
+        btn.textContent = "Sendingâ€¦";
 
         try {
             const res = await fetch("/api/send-email", {
@@ -393,7 +393,7 @@ if (contactForm) {
             const data = await res.json();
 
             if (data.success) {
-                btn.textContent = "✓ Message Sent!";
+                btn.textContent = "âœ“ Message Sent!";
                 btn.style.background = "#12A594";
                 contactForm.reset();
 
@@ -409,7 +409,7 @@ if (contactForm) {
 
         } catch (err) {
             console.error(err);
-            btn.textContent = "✗ Failed — Try Again";
+            btn.textContent = "âœ— Failed â€” Try Again";
             btn.style.background = "#c0392b";
             btn.disabled = false;
 
