@@ -1,10 +1,5 @@
 <div align="center">
   <h1>🚀 SwiftCare – Full Stack Business Website</h1>
-  <p>
-    <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status" />
-    <img src="https://img.shields.io/github/license/muaazx/swiftcare?style=for-the-badge&color=blue" alt="License" />
-    <img src="https://img.shields.io/github/stars/muaazx/swiftcare?style=for-the-badge&color=gold" alt="Stars" />
-  </p>
   <p><i>Building Digital Excellence</i></p>
 </div>
 
